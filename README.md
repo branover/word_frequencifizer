@@ -11,8 +11,10 @@ All you need to do for this to work is install one dependency:
 
 `pip install pymystem3`
 
-## Options ## 
+## Usage ## 
 ```
+Usage: python main.py [options]
+
 Options:
 
   -h, --help            									show this help message and exit
