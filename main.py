@@ -62,7 +62,7 @@ for i, key in enumerate(sorted_word_dict):
         if options.exclude and (key in exclude):
             print "tet"
             continue
-        if options.quantity:
+        if options.quantity and (options.quantity.lower() != "false"):
             line = "%s,%s" % (key, word_dict[key])
         else:
             line = "%s" % key
