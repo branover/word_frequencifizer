@@ -62,7 +62,7 @@ for i, key in enumerate(sorted_word_dict):
         if options.quantity:
             line = "%s,%s" % (key, word_dict[key])
         else:
-            line = "%s," % key
+            line = "%s" % key
         if options.outfile:
             output += line+'\n'
 print output
