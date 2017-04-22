@@ -3,7 +3,7 @@
 
 ## Description ##
 
-This script uses the Yandex Mystem 3.0 morphological analyzer to read in a text file of Russian and output a frequency list after converting all words to their base.  Words are output in descending order of requency, and can be output to a file (in CSV format) for easy import to Anki, or other flashcard programs.
+This script uses the Yandex Mystem 3.0 morphological analyzer to read in a text file of Russian and output a frequency list after converting all words to their base.  Words are output in descending order of frequency, and can be output to a file (in CSV format) for easy import to Anki, or other flashcard programs.
 
 ## Installation ##
 
@@ -23,7 +23,7 @@ Options:
                         
   -d DIRECTORY, --directory=DIRECTORY     Read in from every file in directory
                         
-  -q , --quantity									        Add the quantity to the word
+  -q , --quantity                         Add the quantity to the word
                         
   -m MINIMUM, --minimum=MINIMUM           Minimum number of occurences before showing a word
                         
