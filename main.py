@@ -8,7 +8,7 @@ opt_parser = optparse.OptionParser()
 opt_parser.add_option("-i", "--input", dest="filename", default="sample\hp1-full", help="Read in from file")
 opt_parser.add_option("-o", "--output", dest="outfile", help="Output to results to file")
 opt_parser.add_option("-d", "--directory", dest="directory", help="Read in from every file in directory")
-opt_parser.add_option("-q", "--quantity", default=True, dest="quantity", help="Add the quantity to the word or not. (set to True or False)")
+opt_parser.add_option("-q", "--quantity", default='True', dest="quantity", help="Add the quantity to the word or not. (set to True or False)")
 opt_parser.add_option("-m", "--minimum", default=3, dest="minimum", help="Minimum number of occurences before showing a word")
 opt_parser.add_option("-l", "--length", default=-1, dest="length", help="Maximum number of results to show (sorted by frequency)")
 opt_parser.add_option("-e", "--exclude", dest="exclude", help="Load file with list of words to exclude from results (will also be converted to root word before comparison)")
@@ -27,6 +27,7 @@ if options.exclude:
     f = open(options.exclude)
     exclude = f.read().split()
     f.close()
+
 
 punct = u"…—–!\"#«»$%&\'()*+,./:;=>?@[\\]^_`{|}~"
 text = u"".join(ch for ch in text if ch not in punct).lower()
@@ -54,15 +55,16 @@ for chunk in text:
 sorted_word_dict = sorted(word_dict, key=word_dict.get, reverse=True)
 
 output = ""
+min = int(options.minimum)
 for i, key in enumerate(sorted_word_dict):
 
-    if word_dict[key] > options.minimum:
+    if word_dict[key] >= min:
         if i == options.length:
             break
         if options.exclude and (key in exclude):
             print "tet"
             continue
-        if options.quantity and (options.quantity.lower() != "false"):
+        if options.quantity and (options.quantity.lower() != 'false'):
             line = "%s,%s" % (key, word_dict[key])
         else:
             line = "%s" % key
